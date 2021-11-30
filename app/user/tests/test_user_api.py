@@ -13,6 +13,7 @@ ME_URL = reverse('user:me')
 def create_user(**params):
     return get_user_model().objects.create_user(**params)
 
+
 class PublicUserApiTests(TestCase):
     """Test the users api public"""
 
@@ -98,6 +99,7 @@ class PublicUserApiTests(TestCase):
         res = self.client.get(ME_URL)
 
         self.assertEqual(res.status_code, status.HTTP_401_UNAUTHORIZED)
+
 
 class PrivateUserApiTests(TestCase):
     """Test API requests that require authentication"""
